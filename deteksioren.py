@@ -1,0 +1,10 @@
+import cv2
+img = cv2.imread("bola.jpg")
+cv2.imshow("asli", img)
+hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
+mask = cv2.inRange(hsv,(6, 195, 246), (20, 255, 255) )
+result = cv2.bitwise_and(img, img, mask=mask)
+cv2.imshow("mask", mask)
+cv2.imshow("orange", result)
+cv2.waitKey()
+cv2.destroyAllWindows()
